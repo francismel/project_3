@@ -86,8 +86,6 @@ body {
   }
 
 
-
-
   .comment-wrapper .panel-body {
     max-height:650px;
     overflow:auto;
@@ -103,3 +101,4 @@ body {
     border-bottom:1px dashed #efefef;
     margin-bottom:25px;
 }
+
