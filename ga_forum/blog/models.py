@@ -11,3 +11,4 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.author} said: {self.strContent} on {self.date}'
+
