@@ -24,3 +24,4 @@ class Reply(models.Model):
 
     def __str__(self):
         return f'{self.author} Replied to {self.post.author}: {self.strContent} on {self.date}\n'
+
