@@ -1,5 +1,5 @@
-
 {% extends 'blog/base.html' %}
+{% load static %}
 
 
 {% block content %}
@@ -12,61 +12,73 @@
 
 {% for post in posts %}
 
-        <article class="media content-section">
-            <img src = 'https://i.imgur.com/3XmhFMg.jpg' width = "45" height = "45" border-radius = "10">
+<article class="media content-section">
 
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date }}</small>
-            </div>
-            <p class="article-content">{{ post.strContent }}</p>
-          </div>
-        </article>
+  <div onmouseover="showProfile(this)" class="profile" data-placement="right">
+    <img src='https://i.imgur.com/3XmhFMg.jpg' width="45" height="45" border-radius="10">
+  </div>
+
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">{{ post.author }}</a>
+      <small class="text-muted">{{ post.date }}</small>
+    </div>
+    <p class="article-content">{{ post.strContent }}</p>
+  </div>
+  <button class="hide-form" onclick="showComment(this)">Comment</button>
+</article>
+
+<div class="myDIV" class="media content-comment" style="display: none;">
+  <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
+    <input type="text" class="comment-input" placeholder="comment ...." value="{{ post.id }}" />
+  </div>
+  <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+    <button class="btn btn-info">Send</button>
+  </div>
+</div>
+
 
 
 {% endfor %}
 
-<div class="container white-text">
-	<div class="row login_box">
-	    <div class="col-md-12 col-xs-12" align="center">
-            <div class="line"><h3 id="datetime"></h3></div>
-            <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle"/></div>   
-            <h1>Francis Mel</h1>
-            <span>Top Member</span>
-            <br><br>
-	    </div>
-     
-        <div class="col-md-12 col-xs-12 login_control">
-                
-                <div class="control">
-                    <div class="label">Email Address</div>
-                    <input type="text" class="form-control" value="francismel8@gmail.com"/>
-                </div>
-                
-               
-                <div align = "center" class = "margins">
-                    <button class="btn btn-orange inline">See Posts</button>
-                    <button class="btn btn-orange inline">Message</button>
-                    <br>
 
-              
-                </div>
-                 
-        </div>
-               
+<div class="container white-text" style="display: none;" id="profile-wrapper">
+  <div class="row login_box">
+    <div class="col-md-12 col-xs-12" align="center">
+      <div class="line">
+        <h3 id="datetime"></h3>
+      </div>
+      <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle" /></div>
+      <h1>Francis Mel</h1>
+      <span>Top Member</span>
+      <br><br>
     </div>
+    <div class="col-md-12 col-xs-12 login_control">
+      <div class="control">
+        <div class="label">Email Address</div>
+        <input type="text" class="form-control" value="francismel8@gmail.com" />
+      </div>
+      <div align="center" class="margins">
+        <button class="btn btn-orange inline">See Posts</button>
+        <button class="btn btn-orange inline">Message</button>
+        <br>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
 
 <script>
-var dt = new Date();
+  var dt = new Date();
 
-document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+  document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  // const button = document.querySelector('.hide-form').addEventListener('click', myFunction);
+
 </script>
-    
+
 
 
 
