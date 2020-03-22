@@ -103,5 +103,12 @@ body {
     margin-bottom:25px;
 }
 
-
+.popover {
+  max-width: 100% !important;
+  width: 80% !important;
+  height: 100% !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
 
