@@ -35,10 +35,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     
-    # 'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'blog',
-    # 'users',
+
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +137,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'blog-home'
 
 LOGIN_URL = 'login'
+
+
+AWS_ACCESS_KEY_ID = "AKIAUNLTI3VI7AX3YA37"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "ga-forum-files"
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
