@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+import environ
+environ.Env()
+environ.Env.read_env()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -144,9 +148,9 @@ LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
 
 
-AWS_ACCESS_KEY_ID = "AKIAUNLTI3VI7AX3YA37"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "ga-forum-files"
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
