@@ -36,7 +36,7 @@ def reply_create(request, post_id):
     print('User Id: ',request.user.id)
     print('Reply Content Id: ',request.POST.get('input-comment'))
     
-    reply = Reply( request.user.id, post_id, request.POST.get('input-comment') )
+    reply = Reply( author = request.user, post = post, strContent = request.POST.get('input-comment') )
     reply.save()
     print(reply)
 
