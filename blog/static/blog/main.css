@@ -36,7 +36,7 @@ body {
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin: 0;
   }
   
   .article-title {
@@ -112,3 +112,47 @@ body {
   box-shadow: none !important;
 }
 
+.comments {
+  margin: 40px 0 40px 0 !important;
+}
+
+.content-comment {
+  background-color: #5F788A;
+  padding-top: 0 !important;
+  margin: 0 !important;
+  padding: 0;
+}
+
+.comment-input {
+  border: white;
+  margin-top: 6px;
+  border-radius: 5px;
+  width: 650px;
+}
+
+.comment-date {
+  float: right;
+}
+
+.btn-info {
+  margin-right: -140px !important;
+}
+
+.post-input{
+  border-radius: 6px;
+  width: 500px;
+  /* height: 200px; */
+}
+
+.post-input:active{
+  border-color: #428bca;
+}
+
+.post-add{
+  border-radius: 6px;
+  margin-left: 5px;
+}
+
+.post-add:hover{
+  border-color: #428bca;
+}
