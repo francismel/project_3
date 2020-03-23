@@ -19,8 +19,6 @@ class Reply(models.Model):
     strContent = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     num_likes = models.IntegerField(default=0)
-    # Model has two post fields
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.author} Replied to {self.post.author}: {self.strContent} on {self.date}\n'
