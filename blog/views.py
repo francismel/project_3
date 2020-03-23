@@ -33,10 +33,12 @@ def reply_create(request, post_id):
     print(post)
     print('post id: ', post_id)
 
-    # reply = Reply(request.POST.get('input-comment'))
-    # reply.post_id = post_id
-    # reply.author = request.user
-    # reply.save()
+    print('User Id: ',request.user.id)
+    print('Reply Content Id: ',request.POST.get('input-comment'))
+    
+    reply = Reply( request.user.id, post_id, request.POST.get('input-comment') )
+    reply.save()
+    print(reply)
 
     next = request.POST.get('next', '/')
     return redirect(next)
