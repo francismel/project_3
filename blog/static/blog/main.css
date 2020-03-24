@@ -1,4 +1,6 @@
-  
+  *{
+    font-family: 'Baloo 2', cursive;
+  }
 body {
     background: #fafafa;
     color: #333333;
@@ -15,15 +17,38 @@ body {
   
  
   .bg-steel {
-    background-color: #5f788a;
+    background-color: #000000;
+  }
+  
+  #main-content, .row{
+    max-width: 100%;
+  }
+
+  #sidebar{
+    display: grid;
+    margin-right: -40px;
   }
   
   .site-header .navbar-nav .nav-link {
-    color: #cbd5db;
-    margin: 0 10px;
-    
+    color: #FFFFFF;
+    margin: 0 60px 0 0; 
+    font-size: 16px;
+  }
+  .mr-auto{
+    float: right !important;
   }
   
+  .mr-4{
+    background-color: #FF3D3F;
+    font-size: 60px;
+  }
+  
+  #logo{
+    text-align: left;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+
   .site-header .navbar-nav .nav-link:hover {
     color: #ffffff;
   }
@@ -39,6 +64,11 @@ body {
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin: 0;
+  }
+
+  #navbar-container{
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   .article-title {
