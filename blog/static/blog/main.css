@@ -32,7 +32,7 @@ body {
   .site-header .navbar-nav .nav-link {
     color: #FFFFFF;
     margin: 0 60px 0 0; 
-    font-size: 16px;
+    font-size: 18px;
   }
   .mr-auto{
     float: right !important;
@@ -47,6 +47,7 @@ body {
     text-align: left;
     border-radius: 5px;
     margin-left: 10px;
+    font-size: 25px;
   }
 
   .site-header .navbar-nav .nav-link:hover {
@@ -165,6 +166,7 @@ body {
   margin-top: 6px;
   border-radius: 5px;
   width: 650px;
+  border-radius: 6px;
 }
 
 .comment-date {
@@ -175,22 +177,11 @@ body {
   margin-right: -140px !important;
 }
 
-.post-input{
-  border-radius: 6px;
-  max-width: 500px;
-  
+.content-header{
+  text-align: center;
 }
 
-.post-input:active{
-  border-color: #428bca;
-}
-
-.post-add{
-  border-radius: 6px;
-  margin-left: 5px;
-}
-
-.post-add:hover{
+.comment-input:active{
   border-color: #428bca;
 }
 
