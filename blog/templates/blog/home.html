@@ -1,10 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 
-
 {% block content %}
 <h1>HomePage</h1>
-
 
 {% if request.user %}
   <p>User Status: {{ request.user }}</p>
@@ -24,13 +22,17 @@
   </table>
 </form>
 
-
 {% for post in posts %}
 
 <div class="comments">
   <article class="media content-section">
+<<<<<<< HEAD
     <div onmouseover="showProfile(this)" class="profile" data-placement="right">
       <img src='{{ request.user.profile_pic }}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
+=======
+    <div onclick="showProfile(this)" class="profile" data-placement="right">
+      <img src='{{user.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
+>>>>>>> 9e0240d4cdb44da99bee1b0e9740c75806801960
     </div>
 
     <div class="media-body">
@@ -62,22 +64,20 @@
 
 {% endfor %}
 
-
 <div class="container white-text" style="display: none;" id="profile-wrapper">
   <div class="row login_box">
     <div class="col-md-12 col-xs-12" align="center">
       <div class="line">
         <h3 id="datetime"></h3>
       </div>
-      <div class="outter"><img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="image-circle" /></div>
-      <h1>Francis Mel</h1>
-      <span>Top Member</span>
+      <div class="outter"><img src="{{user.profile.profile_pic.url}}" class="image-circle" /></div>
+      <h1 class="profile-username">{{user.username}}</h1>
       <br><br>
     </div>
     <div class="col-md-12 col-xs-12 login_control">
       <div class="control">
-        <div class="label">Email Address</div>
-        <input type="text" class="form-control" value="francismel8@gmail.com" />
+        <div class="label" >Email Address</div>
+        <input type="text" class="form-control" id="profile-email" value="{{user.email}}" />
       </div>
       <div align="center" class="margins">
         <button class="btn btn-orange inline">See Posts</button>
@@ -90,7 +90,6 @@
 
 
 
-
 <script>
   var dt = new Date();
 
@@ -99,7 +98,6 @@
   // const button = document.querySelector('.hide-form').addEventListener('click', myFunction);
 
 </script>
-
 
 
 

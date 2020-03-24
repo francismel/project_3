@@ -15,8 +15,6 @@ def registerUser(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,f'Congrats {username} on your new account!')
-            # new_profile = Profile(form)
-            # new_profile.save()
             return redirect('blog-home')
 
     else:
