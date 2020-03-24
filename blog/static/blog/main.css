@@ -32,7 +32,7 @@ body {
   .site-header .navbar-nav .nav-link {
     color: #FFFFFF;
     margin: 0 60px 0 0; 
-    font-size: 16px;
+    font-size: 18px;
   }
   .mr-auto{
     float: right !important;
@@ -47,6 +47,7 @@ body {
     text-align: left;
     border-radius: 5px;
     margin-left: 10px;
+    font-size: 25px;
   }
 
   .site-header .navbar-nav .nav-link:hover {
@@ -161,34 +162,31 @@ body {
   position:relative;
 }
 
+#post-input{
+  /* width: 500px; */
+}
+
 .comment-input {
   border: white;
   margin-top: 6px;
   border-radius: 5px;
-  width: 650px;
+  width: 500px;
+  border-radius: 6px;
 }
 
 .comment-date {
   float: right;
 }
 
-
-.post-input{
-  border-radius: 6px;
-  max-width: 500px;
-  
+.send-btn {
+  margin-right: 0 !important;
 }
 
-.post-input:active{
-  border-color: #428bca;
+.content-header{
+  text-align: left;
 }
 
-.post-add{
-  border-radius: 6px;
-  margin-left: 5px;
-}
-
-.post-add:hover{
+.comment-input:active{
   border-color: #428bca;
 }
 
