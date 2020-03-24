@@ -62,7 +62,7 @@
   <div style="display: none"  class="row login_box">
     <div class="col-md-12 col-xs-12" align="center">
       <div class="line">
-        <h3 id="datetime"></h3>
+        <h3 class="datetime"></h3>
       </div>
       <div class="outter"><img src="{{post.author.profile.profile_pic.url}}" class="image-circle" /></div>
       <h1 class="profile-username">{{post.author.username}}</h1>
@@ -92,9 +92,12 @@
 <script>
   var dt = new Date();
 
-  document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  images = document.querySelectorAll('.images');
-  profileCards = document.querySelectorAll('.login_box');
+  const times = document.querySelectorAll(".datetime");
+  for(let i = 0; i<times.length; i++){
+    times[i].innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+  const images = document.querySelectorAll('.images');
+  const profileCards = document.querySelectorAll('.login_box');
 
   for(let i = 0; i<images.length; i++){
     images[i].addEventListener('click',function(){
