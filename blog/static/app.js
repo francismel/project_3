@@ -1,4 +1,5 @@
 function showProfile(element) {
+
     $(element).popover({
       container: 'body',
       html: true,
@@ -9,13 +10,13 @@ function showProfile(element) {
     });
     $(element).popover('show');
 
-    $(element).hover(function () {
-      $(element).popover('show');
-    },
-      function () {
-        $(element).popover('hide');
-        // hidePopover(element)
-      });
+    // $(element).hover(function () {
+    // //   $(element).popover('show');
+    // // // },
+    //   function () {
+    //     $(element).popover('hide');
+    //     // hidePopover(element)
+    //   });
   }
 
 
