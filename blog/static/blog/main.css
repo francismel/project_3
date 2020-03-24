@@ -125,6 +125,14 @@ body {
     overflow:auto;
 }
 
+.comment-box{
+  display: flex !important;
+  align-content: center !important;
+  align-items: center;
+  justify-content: center;
+  width: 98%;
+}
+
 .comment-wrapper .media-list .media img {
     width:64px;
     height:64px;
@@ -169,7 +177,7 @@ body {
   border: white;
   margin-top: 6px;
   border-radius: 5px;
-  width: 500px;
+  width: 700px;
   border-radius: 6px;
 }
 

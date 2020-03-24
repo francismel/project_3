@@ -40,13 +40,13 @@
   <form action="reply/post/{{ post.id }}" method="POST">
     {% csrf_token %}
     <div class="media content-comment">
-      <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
+      <div class="comment-box">
         <input type="text" class="comment-input" name="input-comment" placeholder="    comment ...." />
         <input type="hidden" name="currentpath" value="{{ request.path }}">
+        <button class="btn btn-info" type="submit">Send</button>
       </div>
-          <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
-            <button class="btn btn-info" type="submit">Send</button>
-          </div>
+          <!-- <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn"> -->
+          <!-- </div> -->
     </div>
   </form>
 </div>
