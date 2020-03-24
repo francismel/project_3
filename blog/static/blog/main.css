@@ -161,11 +161,15 @@ body {
   padding: 0;
 }
 
+#post-input{
+  /* width: 500px; */
+}
+
 .comment-input {
   border: white;
   margin-top: 6px;
   border-radius: 5px;
-  width: 650px;
+  width: 500px;
   border-radius: 6px;
 }
 
@@ -173,12 +177,12 @@ body {
   float: right;
 }
 
-.btn-info {
-  margin-right: -140px !important;
+.send-btn {
+  margin-right: 0 !important;
 }
 
 .content-header{
-  text-align: center;
+  text-align: left;
 }
 
 .comment-input:active{

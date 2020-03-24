@@ -2,16 +2,8 @@
 {% load static %}
 
 {% block content %}
-<div class="content-header">
-<h1>HomePage</h1>
 
-{% if request.user %}
-  <p>User Status: {{ request.user }}</p>
-{% elif not request.user %}
-  <p>User Status: No user logged in</p>
-{% else %}
-  <p>User Status: Test failed</p>
-{% endif %}
+<h1 style="text-align: center;">Home_Page</h1>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -22,7 +14,7 @@
     <input id="post-add" type="submit" value="Add Post" class="btn btn-info">
   </table>
 </form>
-</div>
+
 
 {% for post in posts %}
 
@@ -49,12 +41,12 @@
     {% csrf_token %}
     <div class="media content-comment">
       <div class="col-md-9 col-sm-9 col-9 pr-0 comment-box">
-        <input type="text" class="comment-input" name="input-comment" placeholder="   comment ...." />
+        <input type="text" class="comment-input" name="input-comment" placeholder="    comment ...." />
         <input type="hidden" name="currentpath" value="{{ request.path }}">
       </div>
-      <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
-        <button class="btn btn-info" type="submit">Send</button>
-      </div>
+          <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn">
+            <button class="btn btn-info" type="submit">Send</button>
+          </div>
     </div>
   </form>
 </div>
