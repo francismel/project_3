@@ -105,6 +105,11 @@ body {
     margin-bottom:25px;
 }
 
+.wholePost{
+  display:flex;
+  flex-direction:left;
+}
+
 .popover {
   max-width: 60% !important;
   width: 55% !important;

@@ -24,10 +24,12 @@
 
 {% for post in posts %}
 
+<div class = "wholePost">
+
 <div class="comments">
   <article class="media content-section">
     <div onclick="showProfile(this)" class="profile" data-placement="right">
-      <img src='{{user.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
+      <img src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
     </div>
 
     <div class="media-body">
@@ -57,22 +59,22 @@
   </form>
 </div>
 
-{% endfor %}
 
-<div class="container white-text" style="display: none;" id="profile-wrapper">
+
+<div class=" white-text"  class="profile-wrapper">
   <div class="row login_box">
     <div class="col-md-12 col-xs-12" align="center">
       <div class="line">
         <h3 id="datetime"></h3>
       </div>
-      <div class="outter"><img src="{{user.profile.profile_pic.url}}" class="image-circle" /></div>
-      <h1 class="profile-username">{{user.username}}</h1>
+      <div class="outter"><img src="{{post.author.profile.profile_pic.url}}" class="image-circle" /></div>
+      <h1 class="profile-username">{{post.author.username}}</h1>
       <br><br>
     </div>
     <div class="col-md-12 col-xs-12 login_control">
       <div class="control">
         <div class="label" >Email Address</div>
-        <input type="text" class="form-control" id="profile-email" value="{{user.email}}" />
+        <input type="text" class="form-control" id="profile-email" value="{{post.author.email}}" />
       </div>
       <div align="center" class="margins">
         <button class="btn btn-orange inline">See Posts</button>
@@ -82,6 +84,12 @@
     </div>
   </div>
 </div>
+
+</div>
+
+
+{% endfor %}
+
 
 
 
