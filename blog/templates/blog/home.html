@@ -28,9 +28,7 @@
 
 <div class="comments">
   <article class="media content-section">
-    <div onclick="showProfile(this)" class="profile" data-placement="right">
-      <img src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
-    </div>
+      <img class = "images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
 
     <div class="media-body">
       <div class="article-metadata">
@@ -60,9 +58,8 @@
 </div>
 
 
-
 <div class=" white-text"  class="profile-wrapper">
-  <div class="row login_box">
+  <div style="display: none"  class="row login_box">
     <div class="col-md-12 col-xs-12" align="center">
       <div class="line">
         <h3 id="datetime"></h3>
@@ -84,7 +81,6 @@
     </div>
   </div>
 </div>
-
 </div>
 
 
@@ -97,9 +93,19 @@
   var dt = new Date();
 
   document.getElementById("datetime").innerHTML = dt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  images = document.querySelectorAll('.images');
+  profileCards = document.querySelectorAll('.login_box');
 
-  // const button = document.querySelector('.hide-form').addEventListener('click', myFunction);
-
+  for(let i = 0; i<images.length; i++){
+    images[i].addEventListener('click',function(){
+      if(profileCards[i].style.display === ''){
+      
+        profileCards[i].style.display = 'none';
+      }else{
+        profileCards[i].style.display = '';
+      }
+    })
+  }
 </script>
 
 
