@@ -1,1 +1,1 @@
-web: gunicorn <ga_forum>.wsgi
+web: gunicorn ga_forum.wsgi
