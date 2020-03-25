@@ -2,22 +2,23 @@
 {% load static %}
 
 {% block content %}
+
+
 <h1 style="text-align: center; color: white; font-weight: 600; font-size: 50px;">Home_Page</h1>
+
+<div class="center-user-status">
 {% if user.is_authenticated %}
-
 <div class="flexMe">
-  <p class='text-muted'>logged in as {{user.username}} </p>
-  <div class="loggedIn"></div>
+  <p class='whiter'>{{user.username}}</p>
+  <div class="loggedIn"></div></p>
 </div>
-
 {%else%}
 <div class="flexMe">
-  <p class='text-muted'>Not Logged In </p>
+  <p class='whiter'>Not Logged In </p>
   <div class="loggedOut"></div>
-</div>class
-
+</div>
 {%endif%}
-
+</div>
 
 
 <form action="/post" method="post">
@@ -56,8 +57,18 @@
         <p class="article-content">{{ post.strContent }}</p>
         <br>
         <button class="collapsible">See Replys</button>
-        <span onclick="like(this)" class="fa fa-thumbs-up"></span>
-        <span onclick="disLike(this)" class="fa fa-thumbs-down"></span>
+       
+        <div class= "like-buttons">
+        <form class = "flexMe">
+          <button type = "submit" class="fa fa-thumbs-up"></button>
+          <p id="like">0</p>
+        </form>
+        <form class = "flexMe">
+          <button type = "submit" class="fa fa-thumbs-down"></button>
+          <p id="disLike">0</p>
+        </form>
+        </div>
+
         <div class='collapsibleContent'>
           {% for comment in post.reply_set.all %}
           <div class="flexMe replyBackground">
@@ -146,6 +157,8 @@
       this.classList.toggle("active");
 
       var content = this.nextElementSibling;
+      content = content.nextElementSibling;
+      content = content.nextElementSibling;
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
       } else {
