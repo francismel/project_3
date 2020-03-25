@@ -11,8 +11,56 @@ body {
   background-color: #F5F5F5 !important;
   }
 
+  .replyBackground{
+    
+    box-shadow: 1px 1px 1px 1px rgb(116, 116, 116);
+    margin: 7px 0px 7px 0px;
+    background-color: white;
+
+
+  }
+
+  .collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    width: 94%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+
+  
+
+  .collapsibleContent {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #f1f1f1;
+  }
+
+
   .francis input{
-    font-size: 24px;
+    font-size: 20px;
     height: 40px;
     padding-top:6px;
     padding-bottom:6px;
@@ -219,7 +267,7 @@ body {
   flex-direction:left;
 }
 
-.popover {
+.popover {  
   max-width: 60% !important;
   width: 55% !important;
   height: 100% !important;
@@ -228,11 +276,21 @@ body {
   box-shadow: none !important;
 }
 
+.dateRight{
+  position:absolute;
+  right: 5%;
+}
+
+.flexMe{
+  display: flex;
+  flex-direction: left;
+}
 .posts {
   margin: 40px 0 40px 0 !important;
   box-shadow: 3px 3px 3px 3px rgb(116, 116, 116);
   border: solid black 1px;
   border-radius: 10px;
+  position:relative;
 }
 
 .content-comment {
@@ -244,17 +302,23 @@ body {
   width: 100% !important;
 }
 #add-post-container{
+  margin-top: 50px;
+  margin-bottom: 50px;
   width: 100%;
+  display:flex;
+  flex-direction: left;
 }
 .post-input{
   width: 86%;
-  float:left;
-  
+  height: 50px;  
   border-radius: 5px;
 }
 
 #post-add:hover{
   border: grey 1px solid;
+}
+#post-add{
+  font-size: 22px;
 }
 
 
