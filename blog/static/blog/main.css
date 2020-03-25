@@ -12,6 +12,7 @@ body {
   }
 
   .replyBackground{
+    position: relative;
     
     box-shadow: 1px 1px 1px 1px rgb(116, 116, 116);
     margin: 7px 0px 7px 0px;
@@ -51,11 +52,12 @@ body {
   
 
   .collapsibleContent {
+    width: 94%;
     padding: 0 18px;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
-    background-color: #f1f1f1;
+    background-color: white;
   }
 
 
@@ -84,6 +86,7 @@ body {
  
   .francis{
     font-size: 18px;
+    
   }
   .francis button{
     font-size: 18px;
@@ -182,6 +185,7 @@ body {
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin: 0;
+    border: 1px solid black;
   }
 
   #navbar-container{
@@ -208,6 +212,11 @@ body {
     width: 65px;
     margin-right: 16px;
   }
+
+  .right{
+    float: right;
+  }
+  
   
   .article-metadata {
     padding-bottom: 1px;
@@ -278,8 +287,10 @@ body {
 
 .dateRight{
   position:absolute;
-  right: 5%;
+  right: 2%;
 }
+
+
 
 .flexMe{
   display: flex;
