@@ -5,24 +5,24 @@
 <h1 style="text-align: center; color: white; font-weight: 600; font-size: 50px;">Home_Page</h1>
 {% if user.is_authenticated %}
 
-<div class = "flexMe">
-    <p class = 'text-muted'>logged in as {{user.username}} </p> 
-  <div class = "loggedIn"></div>
+<div class="flexMe">
+  <p class='text-muted'>logged in as {{user.username}} </p>
+  <div class="loggedIn"></div>
 </div>
 
-  {%else%}
-  <div class = "flexMe">
-    <p class = 'text-muted'>Not Logged In </p> 
-  <div class = "loggedOut"></div>
-</div>
-  
+{%else%}
+<div class="flexMe">
+  <p class='text-muted'>Not Logged In </p>
+  <div class="loggedOut"></div>
+</div>class
+
 {%endif%}
 
 
 
 <form action="/post" method="post">
   {% csrf_token %}
-  <div id= "add-post-container">
+  <div id="add-post-container">
     <input class="post-input" type="text" name="post-input" placeholder="    whats on your mind ....">
     <input id="post-add" type="submit" value="Add Post" class="btn btn-info">
   </div>
@@ -32,78 +32,85 @@
 {% for post in posts %}
 
 
-<div class = "wholePost">
+<div class="wholePost">
 
-<div class="posts">
-  <article class="media content-section">
-      <img class = "images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
+  <div class="posts">
+    <article class="media content-section">
+      <img class="images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10">
 
-    <div class="media-body">
-      <div class="article-metadata">
-        <a id="author" class="mr-2" href="#">{{ post.author }}</a>
-        <small class="text-muted">{{ post.date }}</small>
-        {% if post.author.username == request.user.username%}
-        <form class = "right" action="post/delete/{{ post.id }}" method="POST">
-          {% csrf_token %}
+      <div class="media-body">
+        <div class="article-metadata">
+          <a id="author" class="mr-2" href="#">{{ post.author }}</a>
+          <small class="text-muted">{{ post.date }}</small>
+          {% if post.author.username == request.user.username%}
+          <form class="right" action="post/delete/{{ post.id }}" method="POST">
+            {% csrf_token %}
 
-          <button type = "submit" >X</button>
-        </form>
-    
-      {%endif%}
-      </div>
-      <p class="article-content">{{ post.strContent }}</p>
-      <br>
-      <button class="collapsible">See Replys</button>
-      <div class ='collapsibleContent'>
-      {% for comment in post.reply_set.all %}
-      <div class = "flexMe replyBackground">
-      <img class = "images" src='{{comment.author.profile.profile_pic.url}}' width="20" height="20" border-radius="10" style="margin-right: 0px;">
-      <p style="margin-left: 15px;"><a class="mr-2" href="#">{{ comment.author }}:</a> {{ comment.strContent }} </p>
-      <p class = "dateRight"><span class="comment-date"><small class="text-muted">  {{ comment.date }}</small></span></p>
-    </div>
-      {% endfor %}
-    </div>
-    </div>
-  </article>
+            <button class='post-delete-button' type="submit">
+              <span class='before'>X</span>
+            </button>
+          </form>
 
-  <form action="reply/post/{{ post.id }}" method="POST">
-    {% csrf_token %}
-    <div class="media content-comment">
-      <div class="comment-box">
-        <input type="text" class="comment-input" name="input-comment" placeholder="    add a reply ....">
-        <input type="hidden" name="currentpath" value="{{ request.path }}">
-        <button class="btn btn-info" type="submit">Send</button>
-      </div>
-          <!-- <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn"> -->
-          <!-- </div> -->
-    </div>
-  </form>
-</div>
-
-
-<div class=" white-text"  class="profile-wrapper">
-  <div style="display: none"  class="row login_box">
-    <div class="col-md-12 col-xs-12" align="center">
-      <div class="line">
-        <h3 id="datetime"></h3>
-      </div>
-      <div class="outter"><img src="{{post.author.profile.profile_pic.url}}" class="image-circle" /></div>
-      <h1 class="profile-username">{{post.author.username}}</h1>
-      <br><br>
-    </div>
-    <div class="col-md-12 col-xs-12 login_control">
-      <div class="control">
-        <div class="label" >Email Address</div>
-        <input type="text" class="form-control" id="profile-email" value="{{post.author.email}}" />
-      </div>
-      <div align="center" class="margins">
-        <button class="btn btn-orange inline">See Posts</button>
-        <button class="btn btn-orange inline">Message</button>
+          {%endif%}
+        </div>
+        <p class="article-content">{{ post.strContent }}</p>
         <br>
+        <button class="collapsible">See Replys</button>
+        <span onclick="like(this)" class="fa fa-thumbs-up"></span>
+        <span onclick="disLike(this)" class="fa fa-thumbs-down"></span>
+        <div class='collapsibleContent'>
+          {% for comment in post.reply_set.all %}
+          <div class="flexMe replyBackground">
+            <img class="images" src='{{comment.author.profile.profile_pic.url}}' width="20" height="20"
+              border-radius="10" style="margin-left: 5px;">
+            <p style="margin-left: 15px;"><a class="mr-2" href="#">{{ comment.author }}:</a> {{ comment.strContent }}
+            </p>
+            <p class="dateRight"><span class="comment-date"><small class="text-muted"> {{ comment.date }}</small></span>
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+
+    <form action="reply/post/{{ post.id }}" method="POST">
+      {% csrf_token %}
+      <div class="media content-comment">
+        <div class="comment-box">
+          <input type="text" class="comment-input" name="input-comment" placeholder="    add a reply ....">
+          <input type="hidden" name="currentpath" value="{{ request.path }}">
+          <button class="btn btn-info" type="submit">Send</button>
+        </div>
+        <!-- <div class="col-md-3 col-sm-2 col-2 pl-0 text-center send-btn"> -->
+        <!-- </div> -->
+      </div>
+    </form>
+  </div>
+
+
+  <div class=" white-text" class="profile-wrapper">
+    <div style="display: none" class="row login_box">
+      <div class="col-md-12 col-xs-12" align="center">
+        <div class="line">
+          <h3 id="datetime"></h3>
+        </div>
+        <div class="outter"><img src="{{post.author.profile.profile_pic.url}}" class="image-circle" /></div>
+        <h1 class="profile-username">{{post.author.username}}</h1>
+        <br><br>
+      </div>
+      <div class="col-md-12 col-xs-12 login_control">
+        <div class="control">
+          <div class="label">Email Address</div>
+          <input type="text" class="form-control" id="profile-email" value="{{post.author.email}}" />
+        </div>
+        <div align="center" class="margins">
+          <button class="btn btn-orange inline">See Posts</button>
+          <button class="btn btn-orange inline">Message</button>
+          <br>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 
@@ -118,12 +125,12 @@
   images = document.querySelectorAll('.images');
   profileCards = document.querySelectorAll('.login_box');
 
-  for(let i = 0; i<images.length; i++){
-    images[i].addEventListener('click',function(){
-      if(profileCards[i].style.display === ''){
-      
+  for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener('click', function () {
+      if (profileCards[i].style.display === '') {
+
         profileCards[i].style.display = 'none';
-      }else{
+      } else {
         profileCards[i].style.display = '';
       }
     })
@@ -134,19 +141,20 @@
   var coll = document.getElementsByClassName("collapsible");
   var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+      this.classList.toggle("active");
 
+      var content = this.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
+  }
 </script>
+
 
 
 

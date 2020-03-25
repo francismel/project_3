@@ -18,5 +18,3 @@ function showProfile(element) {
     //     // hidePopover(element)
     //   });
   }
-
-
