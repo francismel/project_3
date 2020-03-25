@@ -3,16 +3,16 @@
 
 {% block content %}
 
-<h1 style="text-align: center;">Home_Page</h1>
+<h1 style="text-align: center; color: white; font-weight: 600;">Home_Page</h1>
 
 <!------ Include the above in your HEAD tag ---------->
 
 <form action="/post" method="post">
   {% csrf_token %}
-  <table>
-    <input class="comment-input" type="text" name="post-input" placeholder="Add post">
+  <div id=add-post-container>
+    <input class="post-input" type="text" name="post-input" placeholder="    whats on your mind ....">
     <input id="post-add" type="submit" value="Add Post" class="btn btn-info">
-  </table>
+  </div>
 </form>
 
 
@@ -20,19 +20,19 @@
 
 <div class = "wholePost">
 
-<div class="comments">
+<div class="posts">
   <article class="media content-section">
       <img class = "images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10" style="margin-right: 15px;">
 
     <div class="media-body">
       <div class="article-metadata">
-        <a class="mr-2" href="#">{{ post.author }}</a>
+        <a id="author" class="mr-2" href="#">{{ post.author }}</a>
         <small class="text-muted">{{ post.date }}</small>
       </div>
       <p class="article-content">{{ post.strContent }}</p>
       <br>
       {% for comment in post.reply_set.all %}
-      <p><a class="mr-2" href="#">{{ comment.author }}:</a> {{ comment.strContent }} <span class="comment-date"><small class="text-muted">  {{ comment.date }}</small></span></p>
+      <p style="margin-left: 30px;"><a class="mr-2" href="#">{{ comment.author }}:</a> {{ comment.strContent }} <span class="comment-date"><small class="text-muted">  {{ comment.date }}</small></span></p>
       {% endfor %}
     </div>
   </article>
@@ -41,7 +41,7 @@
     {% csrf_token %}
     <div class="media content-comment">
       <div class="comment-box">
-        <input type="text" class="comment-input" name="input-comment" placeholder="    comment ...." />
+        <input type="text" class="comment-input" name="input-comment" placeholder="    add a reply ....">
         <input type="hidden" name="currentpath" value="{{ request.path }}">
         <button class="btn btn-info" type="submit">Send</button>
       </div>
@@ -78,9 +78,8 @@
 </div>
 
 
+
 {% endfor %}
-
-
 
 
 <script>
