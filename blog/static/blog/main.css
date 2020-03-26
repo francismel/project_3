@@ -651,7 +651,7 @@ body {
 }
 
 .allEvents {
-  background-image: linear-gradient(right, white, grey);
+  background-image: linear-gradient(to right, white, grey);
 }
 
 .event-container{
