@@ -59,13 +59,17 @@
         <button class="collapsible">See Replys</button>
        
         <div class= "like-buttons">
-        <form class = "flexMe">
+        <form style="margin-left: 15px;"class = "flexMe" action="post/like/{{ post.id }}" method="POST">
+          {% csrf_token %}
+
           <button type = "submit" class="fa fa-thumbs-up"></button>
-          <p id="like">0</p>
+          <p class="text-muted">{{post.num_likes}}</p>
         </form>
-        <form class = "flexMe">
+        <form class = "flexMe" action="post/dislike/{{ post.id }}" method="POST">
+          {% csrf_token %}
+
           <button type = "submit" class="fa fa-thumbs-down"></button>
-          <p id="disLike">0</p>
+          <p class="text-muted">{{post.num_dislikes}}</p>
         </form>
         </div>
 
@@ -158,7 +162,7 @@
 
       var content = this.nextElementSibling;
       content = content.nextElementSibling;
-      content = content.nextElementSibling;
+      // content = content.nextElementSibling;
       if (content.style.maxHeight) {
         content.style.maxHeight = null;
       } else {

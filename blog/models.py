@@ -9,6 +9,7 @@ class Post(models.Model):
     strContent = models.TextField()
     date = models.DateTimeField(default=timezone.now)
     num_likes = models.IntegerField(default=0)
+    num_dislikes = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.author} said: {self.strContent} on {self.date}\n'

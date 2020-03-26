@@ -503,11 +503,19 @@ body {
   color:rgb(184, 53, 53);
   opacity: 0.8;
   border:none;
+  background-color:transparent;
 }
 .fa-thumbs-up{
   color:rgb(37, 155, 53);
   opacity: 0.9;
   border:none;
+  background-color:transparent;
+
+}
+
+.likeCount{
+  font-size: 15px;
+  
 }
 
 .like-buttons{
