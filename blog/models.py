@@ -35,4 +35,6 @@ class Event(models.Model):
     location = models.CharField(max_length=150,default='over zoom :(')
     description = models.CharField(max_length=300,default='very fun time')
     num_attendees = models.IntegerField(default=0)
+    photo = models.ImageField(default='profile_pics/unknown.png',upload_to='profile_pics')
+
 
