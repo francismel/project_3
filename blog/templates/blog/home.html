@@ -22,8 +22,12 @@
 {%endif%}
 </div>
 
+<div id="main">
+  <button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
+</div>
 
-<form action="/post" method="post">
+
+<form action="/post" method="POST">
   {% csrf_token %}
   <div id="add-post-container">
     <input class="post-input" type="text" name="post-input" placeholder="    whats on your mind ....">
@@ -34,41 +38,50 @@
 
 
 <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <div id="event-navbar" class="flexMe">
     <a class="event-navbar-text" href="#">Upcoming Events</a>
     <a class="event-navbar-text" href="#">Create Event</a>
+    <a href="javascript:void(0)" class="closebtn" class="event-navbar-text" onclick="closeNav()">×</a>
   </div>
-  <br><br><br>
+  <!-- <br><br><br> -->
   
 
   <div class = "content-section francis">
-    {{event_creation_form|crispy}}
-    <div class = "form-group">
+
+    <form method = "POST" action = "new/event/" enctype = "multipart/form-data">
+      
+      {% csrf_token %}
+
+      {{event_creation_form|crispy}}
+      <div class = "form-group">
       <br><br>
       <button class = "btn btn-outline-info" type = "submit">Submit</button>
-  </div>
+    </div>
+  </form>
+
+
     </div>
 
     {% for event in events %}
 
-    
-    <h2>Event No. X</h2>
+    <div class="event-container">
+    <h2 class="event-name">Event No. X</h2>
     <img src='{{event.photo.url}}' width="45" height="45" border-radius="10">
     <!-- <img class="images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10"> -->
-    <p>Host: {{event.host}}</p>
-    <p>{{event.photo}}</p>
-    <p>Location: {{event.location}}</p>
-    <p>Description: {{event.description}}</p>
-    <p>Going: {{event.num_attendees}}</p>
-
+    <p id="host">Host: {{event.host}}</p>
+    <p id="location">Location: {{event.location}}</p>
+    <p id="description">Description: {{event.description}}</p>
+    <p id="going">Going: {{event.num_attendees}}
+      <form action="" method="POST">
+        <button type="submit" id="going-btn" class="btn-outline-info" href="#">   Going</button>
+      </form>
+    </p>
+    
+    </div>  
 
     {%endfor%}
 </div>
 
-<div id="main">
-  <button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
-</div>
 
 
 

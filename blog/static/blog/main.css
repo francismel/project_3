@@ -76,7 +76,7 @@ body {
     height:8%;
     z-index: -1;
     background-color: black;
-    color: white;
+    color: grey;
     text-align: center;
  }
 
@@ -186,7 +186,8 @@ body {
     border-radius: 5px;
     font-size: 25px;
     position: absolute;
-    left:18%;
+    /* left:18%; */
+    left:8%;
   }
 
   .loggedIn {
@@ -365,6 +366,11 @@ body {
   flex-direction: left;
 }
 
+.flexMeRight {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 .flexMeCenter{
   display: flex;
   flex-direction: center;
@@ -372,6 +378,13 @@ body {
 
 #event-navbar {
   background-color:#FFD62F;
+  position: sticky;
+  /* position: absolute; */
+  top: 0;
+}
+
+#event-navbar:last-child{
+  top: 0;
 }
 
 /* added this */
@@ -392,6 +405,11 @@ body {
 #event-navbar a{
   color: black;
   text-decoration: none;
+}
+
+.event-navbar-text {
+  padding-bottom: 0;
+  margin-bottom: 0;  
 }
 
 .event-navbar-text:hover{
@@ -556,10 +574,10 @@ body {
   height: 100%;
   width: 0;
   opacity: 1;
-  position: fixed;
   z-index: 20;
   top: 0;
   left: 0;
+  position: fixed;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
   transition: 0.5s;
@@ -580,28 +598,81 @@ body {
 }
 
 .sidebar .closebtn {
-  position: absolute;
-  top: 6.5%;
-  right: 25px;
-  font-size: 36px;
+  /* position: relative; */
+  top: 0;
+  right: 0;
+  font-size: 25px;
   margin-left: 50px;
   color: black;
+  vertical-align: middle !important; */
 }
 
 .openbtn {
   font-size: 20px;
   cursor: pointer;
-  background-color: #111;
+  background-color: #FF3D3F;
   color: white;
   padding: 10px 15px;
   border: none;
+  margin: 0 auto;
+  position: absolute;
 }
 
 .openbtn:hover {
-  background-color: #444;
+  background-color:#FFD62F;
+  color: black;
+}
+
+.openbtn:before {
+  background-color:#FFD62F;
+  color: black;
 }
 
 #main {
   transition: margin-left .5s;
   padding: 16px;
+  display: flex;
+  justify-content: center;
 }
+
+.event-container{
+  margin: 10px 10px;
+  padding: 0 20px;
+  /* font-family: 'Lobster Two', cursive; */
+  /* font-family: 'Boogaloo', cursive; */
+  /* background-image: url(https://i.pinimg.com/originals/35/b1/dd/35b1dd556b96053840f506cd48485677.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.event-container img{
+  border-radius: 50%;
+  margin: 5px 0;
+}
+
+.event-container h2{
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.event-container p{
+  font-size: 18px;
+  font-family: 'Lobster Two', cursive;
+  /* font-family: 'Boogaloo', cursive; */
+}
+
+#host{
+  font-size: 26px;
+  font-weight: bold;
+}
+
+#going{
+  float: left;
+}
+
+#going-btn{
+  border-radius: 5px;
+  margin-left: 10px;
+}
+

@@ -65,3 +65,28 @@ def add_dislike(request,post_id):
     next = request.POST.get('currentpath', '/')
     return redirect(next)
      
+@login_required
+def create_event(request):
+    # print('hitting in create event')
+    
+    # request.POST = request.POST.copy()
+    # user= request.user._wrapped if hasattr(request.user,'_wrapped') else request.user
+    # request.POST['host'] = user
+
+    print('\n\n\n')
+    print(request.POST)
+    print('\n\n\n')
+
+    # request.POST['host'] = request.user
+    
+    form = EventCreationForm(request.POST)
+    if form.is_valid():
+        form.save()
+        messages.success(request,f'Congrats {request.user.username} on your new Event!')
+        return redirect('blog-home')
+
+    else:
+        messages.error(request,f'We could not create your event, {request.user.username} ')
+        return redirect('blog-home')
+
+    return redirect('blog-home')

@@ -8,11 +8,11 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 
-class EventCreationForm(ModelForm):
+class EventCreationForm(forms.ModelForm):
 
     class Meta: 
         model = Event
-        fields = ['date','location','description','photo']
+        fields = ['date','location','description','photo','host']
 
 
 
