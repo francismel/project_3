@@ -232,7 +232,7 @@ body {
   #navbar-container{
     width: 100% !important;
     max-width: 100% !important;
-    height: 50px;
+    height: 60px;
     margin-left: -12px;
     background-color: black;
     position: fixed;
@@ -368,6 +368,26 @@ body {
 .flexMeCenter{
   display: flex;
   flex-direction: center;
+}
+
+#event-navbar {
+  background-color:#FFD62F;
+}
+
+.sticky {
+position: absolute;
+top: 0;
+width: 100%;
+}
+
+#event-navbar a{
+  color: black;
+  text-decoration: none;
+}
+
+.event-navbar-text:hover{
+  text-decoration: underline !important;
+  color:black !important;
 }
 
 .posts {
@@ -560,15 +580,16 @@ body {
 }
 
 .sidebar a:hover {
-  color: #000000;
+  color: white;
 }
 
 .sidebar .closebtn {
   position: absolute;
-  top: 7%;
+  top: 6.5%;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+  color: black;
 }
 
 .openbtn {
