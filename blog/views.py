@@ -19,7 +19,7 @@ def home(request):
     context = {
         'posts':reversed(Post.objects.all()),
         'event_creation_form': event_creation_form,
-        'events':Event.objects.all(),
+        'events':reversed(Event.objects.all()),
     }
     return render(request,'blog/home.html',context)
 
@@ -73,9 +73,7 @@ def create_event(request):
     # user= request.user._wrapped if hasattr(request.user,'_wrapped') else request.user
     # request.POST['host'] = user
 
-    print('\n\n\n')
-    print(request.POST)
-    print('\n\n\n')
+  
 
     # request.POST['host'] = request.user
     
@@ -86,6 +84,9 @@ def create_event(request):
         return redirect('blog-home')
 
     else:
+        print('\n\n\n')
+        print(form)
+        print('\n\n\n')
         messages.error(request,f'We could not create your event, {request.user.username} ')
         return redirect('blog-home')
 

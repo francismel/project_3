@@ -35,7 +35,7 @@ class Reply(models.Model):
 
 
 class Event(models.Model):
-    host = models.OneToOneField(User, on_delete=models.CASCADE)
+    host = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.now)
     location = models.CharField(max_length=150,default='over zoom :(')
     description = models.CharField(max_length=300,default='very fun time')
