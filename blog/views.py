@@ -14,7 +14,7 @@ from .forms import EventCreationForm
 
 def home(request):
 
-    event_creation_form = EventCreationForm()
+    event_creation_form = EventCreationForm(initial={'host': request.user})
 
     context = {
         'posts':reversed(Post.objects.all()),

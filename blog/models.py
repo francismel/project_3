@@ -42,5 +42,4 @@ class Event(models.Model):
     num_attendees = models.IntegerField(default=0)
     photo = models.ImageField(default='profile_pics/cake.png',upload_to='profile_pics')
 
-    # models.ImageField(default='profile_pics/unknown.png',upload_to='profile_pics')
 

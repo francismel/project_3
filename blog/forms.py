@@ -13,6 +13,11 @@ class EventCreationForm(forms.ModelForm):
     class Meta: 
         model = Event
         fields = ['date','location','description','photo','host']
+        widgets = {'host': forms.HiddenInput()}
+
+        # host = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
 
 
 
