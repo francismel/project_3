@@ -31,7 +31,8 @@ class Reply(models.Model):
 
 class Event(models.Model):
     host = models.OneToOneField(User, on_delete=models.CASCADE)
-    picture = models.ImageField(default='profile_pics/unknown.png',upload_to='profile_pics')
     date = models.DateTimeField(default=timezone.now)
-    location = models.CharField(max_length=100)
+    location = models.CharField(max_length=150,default='over zoom :(')
+    description = models.CharField(max_length=300,default='very fun time')
+    num_attendees = models.IntegerField(default=0)
 

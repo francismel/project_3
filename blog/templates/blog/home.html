@@ -38,6 +38,17 @@
   <a href="#">What's on the Calender?</a>
     {{event_creation_form|crispy}}
 
+    {% for event in events %}
+
+    <p>{{event.host}}</p>
+    <p>{{event.location}}</p>
+    <p>{{event.description}}</p>
+    <p>{{event.num_attendees}}</p>
+
+    {%endfor%}
+
+
+
   
 </div>
 

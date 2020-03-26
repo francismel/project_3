@@ -10,7 +10,7 @@ class EventCreationForm(ModelForm):
 
     class Meta: 
         model = Event
-        fields = ['picture','date','location']
+        fields = ['date','location','description']
 
 
 

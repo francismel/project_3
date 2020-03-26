@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Post
 from .models import Reply
+from .models import Event
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -18,6 +19,7 @@ def home(request):
     context = {
         'posts':reversed(Post.objects.all()),
         'event_creation_form': event_creation_form,
+        'events':Event.objects.all(),
     }
     return render(request,'blog/home.html',context)
 
