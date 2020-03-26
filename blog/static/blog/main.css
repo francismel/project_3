@@ -582,6 +582,7 @@ body {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  font-family: 'Lobster Two', cursive;
 }
 
 .sidebar a {
@@ -591,6 +592,7 @@ body {
   color: #161212;
   display: block;
   transition: 0.3s;
+  
 }
 
 .sidebar a:hover {

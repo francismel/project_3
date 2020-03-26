@@ -77,7 +77,7 @@ def create_event(request):
 
     # request.POST['host'] = request.user
     
-    form = EventCreationForm(request.POST)
+    form = EventCreationForm(request.POST,request.FILES)
     if form.is_valid():
         form.save()
         messages.success(request,f'Congrats {request.user.username} on your new Event!')

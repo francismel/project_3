@@ -24,7 +24,7 @@
 
 <br><br>
 
-<div id="main">
+<div id="main" d>
   <button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
 </div>
 
@@ -63,11 +63,10 @@
 
 
     </div>
-
     {% for event in events %}
 
     <div class="event-container">
-    <h2 class="event-name">Event No. X</h2>
+    <h2 class="event-name">Event No.  </h2>
     <img src='{{event.photo.url}}' width="45" height="45" border-radius="10">
     <!-- <img class="images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10"> -->
     <p id="host">Host: {{event.host}}</p>
