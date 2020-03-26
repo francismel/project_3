@@ -374,10 +374,19 @@ body {
   background-color:#FFD62F;
 }
 
+/* added this */
 .sticky {
-position: absolute;
-top: 0;
-width: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.sticky-container {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-top: 100px; /* height of your footer */
 }
 
 #event-navbar a{
@@ -542,19 +551,6 @@ width: 100%;
   display:flex;
   flex-direction:left;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .sidebar {
   height: 100%;
