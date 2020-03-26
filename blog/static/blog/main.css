@@ -633,7 +633,7 @@ body {
 #main {
   transition: margin-left .5s;
   padding: 16px;
-  display: flex;
+  display: none;
   justify-content: center;
 }
 
