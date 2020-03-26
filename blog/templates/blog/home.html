@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load crispy_forms_tags%}
+
 
 {% block content %}
 
@@ -28,6 +30,21 @@
     <input id="post-add" type="submit" value="Add Post" class="btn btn-info">
   </div>
 </form>
+
+
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#">What's on the Calender?</a>
+    {{event_creation_form|crispy}}
+
+  
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
+</div>
+
 
 
 {% for post in posts %}
@@ -133,6 +150,10 @@
 {% endfor %}
 
 
+
+
+
+
 <script>
   var dt = new Date();
 
@@ -170,6 +191,17 @@
       }
     });
   }
+
+
+  function openNav() {
+  document.getElementById("mySidebar").style.width = "40%";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
 </script>
 
 

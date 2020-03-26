@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from PIL import Image
+
 
 
 
@@ -23,4 +25,13 @@ class Reply(models.Model):
     
     def __str__(self):
         return f'{self.author} Replied to {self.post.author}: {self.strContent} on {self.date}\n'
+
+
+
+
+class Event(models.Model):
+    host = models.OneToOneField(User, on_delete=models.CASCADE)
+    picture = models.ImageField(default='profile_pics/unknown.png',upload_to='profile_pics')
+    date = models.DateTimeField(default=timezone.now)
+    location = models.CharField(max_length=100)
 

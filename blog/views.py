@@ -4,6 +4,7 @@ from .models import Reply
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .forms import EventCreationForm
 
 
 # Create your views here.
@@ -11,8 +12,12 @@ from django.contrib import messages
 
 
 def home(request):
+
+    event_creation_form = EventCreationForm()
+
     context = {
-        'posts':reversed(Post.objects.all())
+        'posts':reversed(Post.objects.all()),
+        'event_creation_form': event_creation_form,
     }
     return render(request,'blog/home.html',context)
 
