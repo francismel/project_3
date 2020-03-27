@@ -64,7 +64,25 @@ def add_dislike(request,post_id):
     post_to_dislike.save()
     next = request.POST.get('currentpath', '/')
     return redirect(next)
-     
+
+@login_required
+def add_yes(request,event_id):
+    event_to_yes = Event.objects.filter(id=event_id)[0]
+    event_to_yes.num_attendees += 1
+    event_to_yes.save()
+    next = request.POST.get('currentpath', '/')
+    return redirect(next)
+
+
+@login_required
+def add_no(request,event_id):
+    event_to_no = Event.objects.filter(id=event_id)[0]
+    event_to_no.num_nopes += 1
+    event_to_no.save()
+    next = request.POST.get('currentpath', '/')
+    return redirect(next)
+
+
 @login_required
 def create_event(request):
     # print('hitting in create event')

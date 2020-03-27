@@ -391,16 +391,19 @@ body {
 }
 
 #event-navbar {
-  background-color:#FFD62F;
+  background-color:rgb(197, 31, 31);
   position: sticky;
   /* position: absolute; */
   top: 0;
+  
 }
 
 .flex-event-navbar {
   display: flex;
   flex-direction: left;
   justify-content: center;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* added this */
@@ -419,17 +422,26 @@ body {
 }
 
 #event-navbar a{
-  color: black;
+  color: white;
   text-decoration: none;
+}
+
+#createEventButton{
+  /* margin-left: 4%; */
+  text-align: center;
 }
 
 .event-navbar-text {
   padding-bottom: 0;
-  margin-bottom: 0;  
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 24px !important;
+  border-radius: 10px;
+  height: 20px;
 }
 
 .event-navbar-text:hover{
-  text-decoration: underline !important;
+  /* text-decoration: underline !important; */
   color:black !important;
 }
 
@@ -532,7 +544,6 @@ body {
     border: 1px solid black;
     text-align: center;
     background-size: contain;
-    height: nd00px;
     width: 100%;
     position: relative;
     z-index: -2;
@@ -588,7 +599,7 @@ body {
 
 .sidebar {
   box-shadow: 3px 3px 3px 3px rgba(116, 116, 116, 0.486);
-  border: 1px solid black;
+  border: none;
   height: 100%;
   width: 0;
   opacity: 1;
@@ -600,6 +611,7 @@ body {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  margin-bottom: 0;
   font-family: 'Lobster Two', cursive;
 }
 
@@ -639,7 +651,7 @@ body {
 }
 
 .openbtn:hover {
-  background-color:#FFD62F;
+  background-color:rgb(49, 176, 213);
   color: black;
 }
 
@@ -649,12 +661,10 @@ body {
 }
 
 .allEvents {
-  /* background-image: linear-gradient(to bottom, #ff4e50, #f9d423); */
-  /* background-image: url(https://i.pinimg.com/564x/bf/50/d6/bf50d635ba4a1fce86c4d5a5d4c97c06.jpg);
+  background-image: url(https://i.imgur.com/PdGWsvz.jpg);
   background-repeat: no-repeat;
-  background-size: 40% auto;
-  background-attachment: fixed; */
-  background-color:white !important;
+  background-size: cover;
+  background-attachment: fixed;
   
 }
 
@@ -690,8 +700,22 @@ h1{
   color: black;
 }
 
+.registered{
+  color: rgb(255, 255, 255);
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 44px;
+  font-weight: 800;
+}
+
+
 .event-name{
-  color: black;
+  color: rgb(255, 255, 255);
+  padding-top: 0;
+  margin-top: 0;
+  font-size: 24px;
+  font-style: bold;
+
 }
 
 .host{
@@ -703,7 +727,7 @@ h1{
   margin-right:4%;
 
 }
-#location, #description, #going{
+#location, #description, .going{
   font-family: 'Lobster Two', cursive; 
 }
 

@@ -40,9 +40,9 @@
 
 <div id="mySidebar" class="sidebar">
   <div id="event-navbar" class="flex-event-navbar">
-    <a class="event-navbar-text" id = "allEventsButton" href="#">Upcoming Events</a>
-    <a class="event-navbar-text" id = "createEventButton" href="#">Create Event</a>
-    <a href="javascript:void(0)" class="closebtn" class="event-navbar-text" onclick="closeNav()">×</a>
+    <a class="event-navbar-text" id = "allEventsButton" href="#">Upcoming</a>
+    <a class="event-navbar-text" id = "createEventButton" href="#">Create</a>
+    <a href="javascript:void(0)" class="closebtn" class="event-navbar-text closebtn" onclick="closeNav()">x</a>
   </div>
   
 
@@ -65,8 +65,9 @@
   </div>
 
   <div class = "allEvents">
-
-    <h1 class="event-name" align = "center" >All Registered Events!</h1>
+    <br><br>
+    <h1 class="registered" align = "center" >All Registered Events!</h1>
+    <br><br>
     {% for event in events %}
 
     <div class="event-container">
@@ -78,13 +79,31 @@
     <p class="host">Date: {{event.date}}</p>
     <p id="location">Location: {{event.location}}</p>
     <p id="description">Description: {{event.description}}</p>
-    <p id="going">Going: {{event.num_attendees}}
-      <form action="" method="POST">
-        <button type="submit" id="going-btn" class="btn-outline-info" href="#">   Going</button>
+
+    <div class = "flexMe">
+    <p class="going">Going: {{event.num_attendees}}</p>
+      <form action="event/yes/{{ event.id }}" method="POST">
+        {% csrf_token %}
+
+        <button type="submit" id="going-btn" class="btn-outline-info" href="#">   Yes I'm Going</button>
       </form>
-    </p>
+
     </div>
-    </div>  
+    
+
+    <div class = "flexMe">
+      <p class="nope">Nope: {{event.num_nopes}}</p>
+    <form action="event/no/{{ event.id }}" method="POST">
+        {% csrf_token %}
+        <button type="submit" id="going-btn" class="btn-outline-info" href="#">   No Way Jose</button>
+    </form>
+  </div>
+
+
+
+    </div>
+    </div> 
+    <br><br> 
 
     {%endfor%}
 

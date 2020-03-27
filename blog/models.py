@@ -42,6 +42,7 @@ class Event(models.Model):
     name = models.CharField(max_length=150,default='Party Time!!!')
     description = models.CharField(max_length=300,default='very fun time')
     num_attendees = models.IntegerField(default=0)
+    num_nopes = models.IntegerField(default=0)
     photo = models.ImageField(default='profile_pics/cake.png',upload_to='profile_pics')
 
 
