@@ -15,11 +15,15 @@ from .forms import EventCreationForm
 def home(request):
 
     event_creation_form = EventCreationForm(initial={'host': request.user})
+    events = Event.objects.order_by('-date')
+
+    posts = Post.objects.order_by('-date')
+
 
     context = {
-        'posts':reversed(Post.objects.all()),
+        'posts':posts,
         'event_creation_form': event_creation_form,
-        'events':reversed(Event.objects.all()),
+        'events':reversed(events),
     }
     return render(request,'blog/home.html',context)
 

@@ -22,4 +22,4 @@ Responsive UI, search bar, post/comment image integration, location API, profile
 
 Link to <a href="https://ga-forum.herokuapp.com/">website</a>
 Link to <a href="https://trello.com/b/2ZjmA4t4/project-3-social-forums">planning board</a>
-Link to <a href="https://trello.com/b/2ZjmA4t4/project-3-social-forums">pitch deck</a>
+Link to <a href="https://drive.google.com/file/d/1lrnmjVDOOoFeXzDFUyNWzWP_iFChF4zV/view">pitch deck</a>
