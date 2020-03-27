@@ -547,7 +547,7 @@ body {
   
 }
 
-.like-buttons{
+.like-buttons{  
   display:flex;
   flex-direction:left;
 }
