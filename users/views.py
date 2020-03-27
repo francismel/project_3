@@ -39,10 +39,10 @@ def viewProfile(request):
 
             return redirect('profile')
     else:
-        # user_edit_form = UserEditForm(instance = request.user)
-        # profile_edit_form = ProfileEditForm(instance = request.user.profile)
-        user_edit_form = UserEditForm()
-        profile_edit_form = ProfileEditForm()
+        user_edit_form = UserEditForm(instance = request.user)
+        profile_edit_form = ProfileEditForm(instance = request.user.profile)
+        # user_edit_form = UserEditForm()
+        # profile_edit_form = ProfileEditForm()
  
     
     context = {
