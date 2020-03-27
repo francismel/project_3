@@ -155,17 +155,23 @@
           <p class="text-muted">{{post.num_dislikes}}</p>
         </form>
         </div>
-
+ 
         <div class='collapsibleContent'>
+          {% if post.reply_set.count == 0 %}
+          <div class="replyBackground">
+          <p style="margin-left: 15px;">Be the first to reply!</p>
+        </div>
+          {% else %}
           {% for comment in post.reply_set.all %}
-          <div class="reply-content"><p class="dateRight"><span class="comment-date"><small class="text-muted"> {{ comment.date }}</small></span></div>
-          <div class="flexMe replyBackground">
-            <img class="images" src='{{comment.author.profile.profile_pic.url}}' width="30" height="30"
+            <div class="reply-content"><p class="dateRight"><span class="comment-date"><small class="text-muted"> {{ comment.date }}</small></span></div>
+            <div class="flexMe replyBackground">
+              <img class="images" src='{{comment.author.profile.profile_pic.url}}' width="30" height="30"
               border-radius="10" style="margin-left: 5px;">
-            <p style="margin-left: 15px;"><span class="mr-3">{{ comment.author }}: </span>{{ comment.strContent }} 
-            </p>
-          </div>
-          {% endfor %}
+              <p style="margin-left: 15px;"><span class="mr-3">{{ comment.author }}: </span>{{ comment.strContent }} </p>
+            </div>
+            {% endfor %}
+            {% endif %}
+            
         </div>
       </div>
     </article>
