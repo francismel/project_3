@@ -73,7 +73,7 @@
     <div class="event-container">
     <h2 class="event-name">{{event.name}}</h2>
     <div class="event-content content-section"> 
-    <img src='{{event.photo.url}}' width="45" height="45" border-radius="10">
+    <img class = "medium_image" src='{{event.photo.url}}' border-radius="10">
     <!-- <img class="images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10"> -->
     <p class="host">Host: {{event.host}}</p>
     <p class="host">Date: {{event.date}}</p>
@@ -120,7 +120,7 @@
 
   <div class="posts">
     <article class="media content-section">
-      <img class="images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10">
+      <img class="images medium_image" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10">
 
       <div class="media-body">
         <div class="article-metadata">
@@ -165,9 +165,9 @@
           {% for comment in post.reply_set.all %}
             <div class="reply-content"><p class="dateRight"><span class="comment-date"><small class="text-muted"> {{ comment.date }}</small></span></div>
             <div class="flexMe replyBackground">
-              <img class="images" src='{{comment.author.profile.profile_pic.url}}' width="30" height="30"
+              <img class="images little_image" src='{{comment.author.profile.profile_pic.url}}' width="30" height="30"
               border-radius="10" style="margin-left: 5px;">
-              <p style="margin-left: 15px;"><span class="mr-3">{{ comment.author }}: </span>{{ comment.strContent }} </p>
+              <p style="margin-left: 4px;"><span class="mr-3">{{ comment.author }}: </span>{{ comment.strContent }} </p>
             </div>
             {% endfor %}
             {% endif %}
