@@ -5,31 +5,31 @@
 
 {% block content %}
 
-
-<h1 style="text-align: center; color: white; font-weight: 600; font-size: 50px;">Home_Page</h1>
-
-<div class="center-user-status">
+<div>
 {% if user.is_authenticated %}
-<div class="flexMe">
-  <p class='whiter'>{{user.username}}</p>
+<div class="center-user-status">
   <div class="loggedIn"></div></p>
+  <p class='whiter'>{{user.username}}</p>
 </div>
 {%else%}
-<div class="flexMe">
-  <p class='whiter'>Not Logged In </p>
+<div class="center-user-status">
   <div class="loggedOut"></div>
+  <p class='whiter'>Not Logged In </p>
 </div>
 {%endif%}
 </div>
 
-<br><br>
+<h1 style="text-align: center; color: white; font-weight: 600; font-size: 50px;">Home_Page</h1>
+
+
+<!-- <br><br> -->
 
 <div id="main">
   <button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
 </div>
 
 <br>
-<form action="/post" method="POST">
+<form action="/post" method="POST" autocomplete="off">
   {% csrf_token %}
   <div id="add-post-container">
     <input class="post-input" type="text" name="post-input" placeholder="    whats on your mind ....">
@@ -48,7 +48,9 @@
   <!-- <br><br><br> -->
   
 
-  <div class = "content-section francis" id = "newEvent">
+  <div style="display: none" class = "content-section francis" id = "newEvent">
+
+    <h1 align = "center">Give Us The Details!</h1>
 
     <form method = "POST" action = "new/event/" enctype = "multipart/form-data">
       
@@ -64,16 +66,18 @@
 
   </div>
 
-  <div class = "allEvents">
+  <div class = "allEvents content-section">
+
+    <h1 class="event-name" align = "center" >All Registered Events!</h1>
     {% for event in events %}
 
     <div class="event-container">
     <h2 class="event-name">Event No.  </h2>
+    <div class="event-content"> 
     <img src='{{event.photo.url}}' width="45" height="45" border-radius="10">
     <!-- <img class="images" src='{{post.author.profile.profile_pic.url}}' width="45" height="45" border-radius="10"> -->
-    <div class="event-content"> 
-    <p id="host">Host: {{event.host}}</p>
-    <p id="host">Date: {{event.date}}</p>
+    <p class="host">Host: {{event.host}}</p>
+    <p class="host">Date: {{event.date}}</p>
     <p id="location">Location: {{event.location}}</p>
     <p id="description">Description: {{event.description}}</p>
     <p id="going">Going: {{event.num_attendees}}
@@ -141,8 +145,7 @@
           <div class="flexMe replyBackground">
             <img class="images" src='{{comment.author.profile.profile_pic.url}}' width="30" height="30"
               border-radius="10" style="margin-left: 5px;">
-            <p style="margin-left: 15px;"><a class="mr-3" href="#">{{ comment.author }}:</a> {{ comment.strContent }}
-            </p>
+            <p style="margin-left: 15px;"><span class="mr-3">{{ comment.author }}: </span>{{ comment.strContent }} 
             </p>
           </div>
           {% endfor %}
@@ -150,7 +153,7 @@
       </div>
     </article>
 
-    <form action="reply/post/{{ post.id }}" method="POST">
+    <form action="reply/post/{{ post.id }}" autocomplete="off" method="POST">
       {% csrf_token %}
       <div class="media content-comment">
         <div class="comment-box">

@@ -14,12 +14,10 @@ body {
   .replyBackground {
     position: relative;
     background-color: rgb(226, 226, 226);
-    margin: 8px 0px 7px 0px;
-    border-radius: 6px;
-    clear: none;
-    padding-top: 3%;
-    padding-right: 2%;
-    padding-bottom: 2%;
+    margin: 2px 0px 7px 0px;
+    border-radius: 10px;
+    border: solid 0.5px rgb(155, 155, 155);
+    padding: 3% 2% 2% 0;
   }
 
   .reply-content{
@@ -27,6 +25,11 @@ body {
     right: 0;
     margin: 8px 0 6px 0;
     z-index: 1;
+  }
+
+  .mr-3{
+    font-size: 16px !important;
+    color: #009DC4;
   }
 
   .collapsible {
@@ -469,8 +472,8 @@ body {
 }
 
 .images {
-  margin-right: 15px;
-  /* border: #000000 2px solid; */
+  margin-right: 5px;
+  padding-right: -2px;
   border-radius: 50%;
 }
 
@@ -517,7 +520,7 @@ body {
 
 .center-user-status {
   display: flex;
-  justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .about-container {
@@ -584,6 +587,7 @@ body {
 }
 
 .sidebar {
+
   height: 100%;
   width: 0;
   opacity: 1;
@@ -610,6 +614,7 @@ body {
 
 .sidebar a:hover {
   color: white;
+  
 }
 
 .sidebar .closebtn {
@@ -651,21 +656,23 @@ body {
 }
 
 .allEvents {
-  background-image: linear-gradient(to right, white, grey);
+  /* background-image: linear-gradient(to bottom, #ff4e50, #f9d423); */
+  background-image: url(https://i.pinimg.com/736x/fc/24/e3/fc24e3908c3a42d0470c90171ac8ac8b.jpg);
+  background-repeat: no-repeat;
+  background-size: initial;
+  background-attachment: fixed;
 }
 
 .event-container{
   margin: 10px 10px;
   padding: 0 20px;
-  /* font-family: 'Lobster Two', cursive; */
-  /* font-family: 'Boogaloo', cursive; */
-  /* background-image: url(https://i.pinimg.com/originals/35/b1/dd/35b1dd556b96053840f506cd48485677.jpg); */
-  background-repeat: no-repeat;
-  background-size: cover;
+  color: rgb(0, 0, 0);
 }
 
 .event-content {
-  border: 2px solid black;
+  border: 2px solid white;
+  padding: 10px;
+  box-shadow: 3px 3px 3px 3px rgba(116, 116, 116, 0.486);
 } 
 
 .event-container img{
@@ -675,7 +682,7 @@ body {
 
 .event-container h2{
   text-align: center;
-  border-bottom: black solid 2px;
+  border-bottom: white solid 2px;
 }
 
 .event-container p{
@@ -684,7 +691,15 @@ body {
   /* font-family: 'Boogaloo', cursive; */
 }
 
-#host{
+h1{
+  color: white;
+}
+
+.event-name{
+  color: white;
+}
+
+.host{
   font-size: 26px;
   font-weight: bold;
 }
@@ -699,6 +714,7 @@ body {
 
 #going{
   float: left;
+  font-family: 'Baloo 2', cursive !important;
 }
 
 #going-btn{

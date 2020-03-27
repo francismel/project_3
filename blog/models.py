@@ -9,6 +9,7 @@ from datetime import date
 
 
 
+
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     strContent = models.TextField()
