@@ -472,8 +472,8 @@ body {
 }
 
 .images {
-  margin-right: 5px;
-  padding-right: -2px;
+  margin-right: 8px;
+  padding-right: 1px;
   border-radius: 50%;
 }
 
@@ -587,7 +587,8 @@ body {
 }
 
 .sidebar {
-
+  box-shadow: 3px 3px 3px 3px rgba(116, 116, 116, 0.486);
+  border: 1px solid black;
   height: 100%;
   width: 0;
   opacity: 1;
@@ -624,7 +625,7 @@ body {
   font-size: 25px;
   margin-left: 50px;
   color: black;
-  vertical-align: middle !important; */
+  vertical-align: middle !important; 
 }
 
 .openbtn {
@@ -649,20 +650,22 @@ body {
 
 .allEvents {
   /* background-image: linear-gradient(to bottom, #ff4e50, #f9d423); */
-  background-image: url(https://i.pinimg.com/736x/fc/24/e3/fc24e3908c3a42d0470c90171ac8ac8b.jpg);
+  /* background-image: url(https://i.pinimg.com/564x/bf/50/d6/bf50d635ba4a1fce86c4d5a5d4c97c06.jpg);
   background-repeat: no-repeat;
-  background-size: initial;
-  background-attachment: fixed;
+  background-size: 40% auto;
+  background-attachment: fixed; */
+  background-color:white !important;
+  
 }
 
 .event-container{
   margin: 10px 10px;
   padding: 0 20px;
-  color: rgb(0, 0, 0);
+  color: black;
 }
 
 .event-content {
-  border: 2px solid white;
+  border: 2px solid black;
   padding: 10px;
   box-shadow: 3px 3px 3px 3px rgba(116, 116, 116, 0.486);
 } 
@@ -674,7 +677,7 @@ body {
 
 .event-container h2{
   text-align: center;
-  border-bottom: white solid 2px;
+  /* border-bottom: black solid 2px; */
 }
 
 .event-container p{
@@ -684,30 +687,26 @@ body {
 }
 
 h1{
-  color: white;
+  color: black;
 }
 
 .event-name{
-  color: white;
+  color: black;
 }
 
 .host{
-  font-size: 26px;
+  font-size: 26px !important;
   font-weight: bold;
 }
 
-#location{
-  font-family: 'Baloo 2', cursive !important;
+#loginStatus{
+  margin-right:4%;
+
+}
+#location, #description, #going{
+  font-family: 'Lobster Two', cursive; 
 }
 
-#description {
-  font-family: 'Baloo 2', cursive !important;
-}
-
-#going{
-  float: left;
-  font-family: 'Baloo 2', cursive !important;
-}
 
 #going-btn{
   border-radius: 5px;
