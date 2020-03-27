@@ -44,6 +44,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
+            {% block button %}{% endblock %}
             <a class="nav-item nav-link" href='/'>Home</a>
             <a class="nav-item nav-link" href="/about">About</a>
             <a class="nav-item nav-link" href="/profile">Profile</a>
@@ -64,6 +65,7 @@
       </div>
     </nav>
   </header>
+  {% block status %}{% endblock %}
   <main role="main" class="container">
     <div class="row" id="main-content">
       <!-- class="col-md-8" was applied to the line below -->
@@ -71,13 +73,13 @@
         {%if messages%}
         {%for message in messages%}
         <div class="alert alert-{{message.tags}}">
-
+          
           {{message}}
         </div>
         {%endfor%}
-
+        
         {%endif%}
-
+        
         {% block content %}{% endblock %}
       </div>
       <!-- <div class="col-md-4" id="sidebar">

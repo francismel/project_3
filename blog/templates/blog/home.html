@@ -3,8 +3,7 @@
 {% load crispy_forms_tags%}
 
 
-{% block content %}
-
+{% block status %}
 <div>
 {% if user.is_authenticated %}
 <div class="center-user-status">
@@ -18,17 +17,17 @@
 </div>
 {%endif%}
 </div>
+{% endblock %}
 
-<h1 style="text-align: center; color: white; font-weight: 600; font-size: 50px;">Home_Page</h1>
+
+{% block button %}
+<button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
+{% endblock %}
 
 
-<!-- <br><br> -->
+{% block content %}
+<h1 style="text-align: center; color: white; font-weight: 600; font-size: 50px; margin-top: 0; padding-top: 0;">Home_Page</h1>
 
-<div id="main">
-  <button class="openbtn" onclick="openNav()">See Upcoming Events!</button>  
-</div>
-
-<br>
 <form action="/post" method="POST" autocomplete="off">
   {% csrf_token %}
   <div id="add-post-container">
@@ -45,7 +44,6 @@
     <a class="event-navbar-text" id = "createEventButton" href="#">Create Event</a>
     <a href="javascript:void(0)" class="closebtn" class="event-navbar-text" onclick="closeNav()">×</a>
   </div>
-  <!-- <br><br><br> -->
   
 
   <div style="display: none" class = "content-section francis" id = "newEvent">
@@ -243,12 +241,12 @@
 
   function openNav() {
   document.getElementById("mySidebar").style.width = "40%";
-  document.getElementById("main").style.marginLeft = "250px";
+  // document.getElementById("main").style.marginLeft = "250px";
 }
 
 function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
+  // document.getElementById("main").style.marginLeft= "0";
 }
 
 
